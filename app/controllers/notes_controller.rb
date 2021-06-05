@@ -3,7 +3,7 @@ class NotesController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index 
-        puts "AQUI"
+        @notes = Note.all
     end
 
     def new
@@ -11,13 +11,11 @@ class NotesController < ApplicationController
     end
 
     def create
-        puts "FOI #{params[:notes]}"
         @note = Note.new(title: notes_params[:title],
                          note: notes_params[:note],
                          priority: notes_params[:priority],
                          user_id: 5)
         @note.save
-        puts "RESULTADO: #{@note.title}"
     end
 
     def notes_params

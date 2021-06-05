@@ -3,12 +3,15 @@
 <a href="/notes/new">Criar nova anotação</a>
 
 <div class="card">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.title %></td>
+        <td><%= note.note %></td>
+        <td><%= link_to "Show", note %></td>
+        <td><%= link_to "Edit", edit_note_path(note) %></td>
+        <td><%= link_to "Destroy", note, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </div>
