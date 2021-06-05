@@ -1,0 +1,25 @@
+<h1>CRIAR ANOTAÇÃO</h1>
+
+<form action="/notes" method="post" name="notes">
+  <div class="mb-3">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+    <input type="text" name="notes[title]" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+  <div class="input-group">
+    <span class="input-group-text">Anotação</span>
+    <textarea class="form-control" name="notes[note]" aria-label="With textarea"></textarea>
+  </div>
+  <br>
+  <div class="dropdown">
+  <label class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Prioridade
+  </label>
+  <select class="dropdown-menu" aria-labelledby="dropdownMenuButton1" name="notes[priority]">
+    <option value="Baixa">Baixa</option>
+    <option value="Média">Média</option>
+    <option value="Alta">Alta</option>
+  </select>
+  </div>
+  <input type="submit" class="btn btn-primary"/>
+</form>
