@@ -1,16 +1,23 @@
-<h1><span class="badge bg-secondary">INDEX</span></h1>
+<h1><span class="badge bg-secondary">Notas</span></h1>
 
 <a href="/notes/new">Criar nova anotação</a>
-
+<br>
+<br>
 <div class="card">
   <tbody>
     <% @notes.each do |note| %>
       <tr>
         <td><%= note.title %></td>
+        <br>
         <td><%= note.note %></td>
+        <br>
+        <td><%= note.priority %></td>
+        <br>
         <td><%= link_to "Show", note %></td>
         <td><%= link_to "Edit", edit_note_path(note) %></td>
         <td><%= link_to "Destroy", note, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <br>
+        <br>
       </tr>
     <% end %>
   </tbody>
