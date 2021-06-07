@@ -1,24 +1,46 @@
-<h1><span class="badge bg-secondary">Notas</span></h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Notepad-app</title>
 
-<a href="/notes/new">Criar nova anotação</a>
-<br>
-<br>
-<div class="card">
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <br>
-        <td><%= note.note %></td>
-        <br>
-        <td><%= note.priority %></td>
-        <br>
-        <td><%= link_to "Show", note %></td>
-        <td><%= link_to "Edit", edit_note_path(note) %></td>
-        <td><%= link_to "Destroy", note, method: :delete, data: { confirm: "Are you sure?" } %></td>
-        <br>
-        <br>
-      </tr>
-    <% end %>
-  </tbody>
-</div>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>Notas</h1>
+    <%= link_to "Nova nota", new_note_path %>
+    <br>
+    <br>
+    <div class="card">
+      <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+          <td scope="row"><%= note.title %></td>
+          <br>
+          <td scope="row"><%= note.note %></td>
+          <br>
+          <td scope="row"><%= note.priority %></td>
+          <br>
+          <td><%= link_to "Show", note %></td>
+          <td><%= link_to "Edit", edit_note_path(note) %></td>
+          <td><%= link_to "Destroy", note, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          <br>
+          <br>
+          </tr>
+        <% end %>
+      </tbody>
+    </div>
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="js/bootstrap.min.js"></script> -->
+  </body>

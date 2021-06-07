@@ -27,7 +27,7 @@ class NotesController < ApplicationController
 
     def delete
     end
-    
+
     private
 
     def notes_params
