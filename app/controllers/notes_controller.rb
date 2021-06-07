@@ -4,7 +4,7 @@ class NotesController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index 
-        @notes = Note.all
+        @notes = Note.where(user_id: current_user.id)
     end
 
     def create
