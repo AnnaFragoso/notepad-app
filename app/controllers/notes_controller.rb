@@ -41,7 +41,7 @@ class NotesController < ApplicationController
             render "new"
         end
     end
-    
+
     private
 
     def notes_params
