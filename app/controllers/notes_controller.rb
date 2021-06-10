@@ -4,7 +4,7 @@ class NotesController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index 
-        @notes = Note.all
+        @notes = Note.where(user_id: current_user.id)
     end
 
     def create
@@ -12,7 +12,11 @@ class NotesController < ApplicationController
                          note: notes_params[:note],
                          priority: notes_params[:priority],
                          user_id: current_user.id)
-        @note.save
+        if @note.save
+            redirect_to root_url
+        else
+            render "new"
+        end
     end
 
     def edit
@@ -22,10 +26,20 @@ class NotesController < ApplicationController
 
     def update
         @note = Note.find_by(id: params[:id])
-        @note.update(notes_params)
+        if @note.update(notes_params)
+            redirect_to root_url
+        else
+            render "edit"
+        end
     end
 
-    def delete
+    def destroy
+        @note = Note.find_by(id: params[:id])
+        if @note.destroy
+            redirect_to root_url
+        else
+            render "new"
+        end
     end
 
     private
