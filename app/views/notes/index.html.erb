@@ -1,33 +1,30 @@
-
-  <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-    <h1>Notas</h1>
-    <%= link_to "Nova nota", new_note_path %>
-    <br>
-    <br>
-    <div class="card">
-      <tbody>
-        <% @notes.each do |note| %>
-          <tr>
-          <td scope="row"><%= note.title %></td>
-          <br>
-          <td scope="row"><%= note.note %></td>
-          <br>
-          <td scope="row"><%= note.priority %></td>
-          <br>
-          <td><%= link_to "Show", note %></td>
-          <td><%= link_to "Edit", edit_note_path(note) %></td>
-          <td><%= button_to "Delete", note, method: :delete %></td>
-          <br>
-          <br>
-          </tr>
-        <% end %>
-      </tbody>
+<%= yield %>
+<main role="main">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Welcome!</h1>
+      <%= link_to "Create new note", new_note_path, :class => "btn btn-primary btn-lg" %>
     </div>
+  </div>
+  <div class="container">
+    <div class="row">
+    <!--<tbody>-->
+      <% @notes.each do |note| %>
+        <!--<tr>-->
+        <div class="col-md-4">
+          <!--<div class="card-body">-->
+            <h5><%= note.title %></h5>
+            <p><%= note.note %></p>
+            <div>
+              <%= link_to "Show", note %>
+              <%= link_to "Edit", edit_note_path(note) %>
+              <%= button_to "Delete", note, method: :delete, :class => "btn btn-danger btn-sm" %>
+            <div>
+          <!--</div>-->
+        </div>
+        <!--</tr>-->
+      <% end %>
+    </div>
+    <!--</tbody>-->
+  </div>
+</main>

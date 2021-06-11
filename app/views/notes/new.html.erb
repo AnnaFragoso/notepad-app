@@ -1,5 +1,5 @@
 <%= csrf_meta_tags %>
-<h1>CRIAR ANOTAÇÃO</h1>
+<h1>Adicionar uma nova anotação</h1>
 
 <form action="/notes" method="post" name="notes">
   <div class="mb-3">
@@ -13,10 +13,10 @@
   </div>
   <br>
   <div class="dropdown">
-  <label class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+  <label>
     Prioridade
   </label>
-  <select class="dropdown-menu" aria-labelledby="dropdownMenuButton1" name="notes[priority]">
+  <select name="notes[priority]">
     <option value="Baixa">Baixa</option>
     <option value="Média">Média</option>
     <option value="Alta">Alta</option>

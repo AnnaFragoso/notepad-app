@@ -1,0 +1,9 @@
+.list-align {
+    /*display: inline-block;*/
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    text-align: center;
+}
